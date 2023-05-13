@@ -53,6 +53,13 @@ int main()
 
     printf("The Difference is  : %d\n",iRet);
 
+    free(ptr);
+
+    if(ptr == NULL)
+    {
+        printf("Memory Deleted Susccesfully");
+    }
+
     return 0;
 
 }
