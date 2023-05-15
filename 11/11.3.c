@@ -1,60 +1,83 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<stdlib.h>
 #include<stdbool.h>
 
+#define ERR_NOTFOUND -1
 
-int chkLastOccur(int Arr[] , int iLength, int iValue){
 
-    int iCnt =0;
-    int  iResult = -1 ;
-    for (iCnt = iLength -1; iCnt >=0 ; iCnt--)
+
+int SearchLastOccurence(int Arr[] , int iLength, int iNo){
+
+    int iCnt = 0;
+    int iIndex = ERR_NOTFOUND;
+
+    for(iCnt = 0 ;iCnt < iLength ; iCnt ++)
     {
-        if (Arr[iCnt] == iValue)
-        {   
-            iResult = iCnt;
-            break;
+        if(Arr[iCnt] == iNo)
+        {
+                iIndex = iCnt;
         }
     }
-    return iResult;
+    if(iCnt == iLength)
+    {
+        return ERR_NOTFOUND;
+    }
+    else{
+        return iIndex;
+    }
+
 }
 
 int main()
 {
     int iSize =0;
-    int * ptr = NULL;
+    int *ptr =NULL;
+    int iValue =0;
     int iCnt =0;
-    int iNo =0;
-    int  iRet = 0;;
+    int iRet = 0;
 
-    printf("Enter the Number of elements .. \n");
+
+    printf("Enter Number of Elements..\n");
     scanf("%d",&iSize);
 
-    ptr = (int *) malloc( sizeof(int)  * iSize);
+    ptr = (int *) malloc(iSize * sizeof(int));
 
     if(ptr == NULL)
     {
-        printf("Unalble to Alloavate Memory..\n");
+        printf("Unable to Allocate Memoty..\n");
         return -1;
+
     }
 
-    printf("Enter the Elemets..\n");
-    for (iCnt =0; iCnt < iSize; iCnt ++)
+
+    printf("Enter the number of elements..\n");
+    for (iCnt =0; iCnt < iSize ; iCnt ++)
     {
         scanf("%d",&ptr[iCnt]);
-        if(ptr[iCnt] < 0) {
-            ptr[iCnt] = -ptr[iCnt];
-        }
     }
-    printf("Enter the number to count Frequency..\n");
-    scanf("%d",&iNo);
 
-    printf("\n");
+    printf("Enter the Element that you want to SearchLastOccurence..\n");
+    scanf("%d",&iValue);
 
-    iRet = chkLastOccur(ptr , iSize , iNo);
+    printf("ELements are .. \n");
 
-    printf("Last Occurence of element is at %d\n",iRet);
+    for (iCnt =0; iCnt < iSize ; iCnt ++)
+    {
+        printf("%d\n",ptr[iCnt]);
+    }
+    
+   iRet= SearchLastOccurence(ptr , iSize , iValue);
+
+    if(iRet == ERR_NOTFOUND)
+    {
+        printf("There is No Such Element");
+    }
+    else{
+        printf("%doccured at index %d \n",iValue, iRet );
+    }
+
+
     free(ptr);
-
-
+    
     return 0;
 }
