@@ -3,7 +3,7 @@
 #include<stdbool.h>
 
 
-bool chkFirstOccur(int Arr[] , int iLength, int iValue){
+int chkFirstOccur(int Arr[] , int iLength, int iValue){
 
     int iCnt =0;
     int  iResult = 0;
@@ -11,7 +11,8 @@ bool chkFirstOccur(int Arr[] , int iLength, int iValue){
     {
         if (Arr[iCnt] == iValue)
         {   
-            iResult = Arr[iCnt];
+            iResult = iCnt;
+            break;
         }
     }
     return iResult;
@@ -23,7 +24,7 @@ int main()
     int * ptr = NULL;
     int iCnt =0;
     int iNo =0;
-    int  iRet = false;
+    int  iRet = 0;;
 
     printf("Enter the Number of elements .. \n");
     scanf("%d",&iSize);
