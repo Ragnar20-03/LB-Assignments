@@ -1,7 +1,7 @@
 #include<stdio.h>
 
 
-void Convert(char *str)
+void strlwrX(char *str)
 {
     while (*str != '\0')
     {
@@ -21,7 +21,7 @@ int main()
     printf("Enter first string : \n");
     scanf("%[^'\n']s",Arr);
 
-    Convert(Arr);
+    strlwrX(Arr);
 
     printf("String After Modification : %s\n",Arr);
 
