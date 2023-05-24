@@ -1,20 +1,30 @@
 #include<stdio.h>
 // Incomplete
 
-void Reverse(char str[])
+void Reverse(char *str)
 {
-    int iCount = 0;
-    while(*str != '\0')
-    {
-        iCount++;
-        str++;
-    }
+    char *start = NULL;
+    char *end  = NULL;
+    char temp = '\0';
 
-    for(int iCnt = iCount ; iCnt >=0; iCnt--)
+    start = str;
+    end     = str;
+
+        while(*end !='\0')
+        {
+            end++;
+        }
+        end --;
+    
+    while (start < end)
     {
-        printf("%c",str[iCnt]);
+        temp = *start;
+        *start = *end;
+        *end = temp;
+
+        start++;
+        end--;
     }
-    printf("\n");
 
 }
 
@@ -26,6 +36,8 @@ int main()
     scanf(" %[^'\n']s" , Arr);
 
      Reverse(Arr);
+
+     printf("String After reverse is .. : %s\n",Arr);
 
     return 0;
 }
