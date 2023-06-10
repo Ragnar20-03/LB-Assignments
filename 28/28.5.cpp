@@ -6,9 +6,9 @@ typedef unsigned int UINT;
 
 UINT ToggleNibble(UINT iNo)
 {
-    UINT iMask = 0X00000009;
-
-    return (iMask ^ iNo) ;
+    UINT iMask = 0X00000009;   
+    
+    return (iMask ^ iNo);
     
 }
 
