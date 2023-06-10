@@ -24,7 +24,7 @@ UINT CountOne( UINT iNo )
 
 int main() 
 {
-    UINT iValue1 = 0;
+    UINT iValue = 0;
     UINT iRet = 0;
 
     cout<<"Enter the Number : \n";
