@@ -176,14 +176,61 @@ void DeleteAtPos ( PPNODE Head , int iPos)
         }
 }
 
+int First_Occur( PNODE Head , int No)
+{
+    // int iLength = Count(Head );
+    // for ( int iCnt = 1 ; iCnt <= iLength ; iCnt ++)
+    // {
+    //     if ( Head -> data == No)
+    //     {
+    //         return iCnt ; 
+    //         break;
+    //     }
+    //     else
+    //     {
+    //         Head = Head -> next;
+    //     }
+    // }
+
+    //  OR
+
+    int iPos = 0;
+    while ( Head != NULL)
+    {   
+        iPos ++;
+        if (  Head -> data == No)
+        {
+            return iPos;
+        }
+        else{
+            Head = Head -> next;
+        }
+    }
+}
+
 int main()
 {
     PNODE First = NULL;
 
-    InsertFirst ( &First , 101) ;
-    InsertFirst ( &First , 51) ;
-    InsertFirst ( &First , 21) ;
-    InsertFirst ( &First , 11) ;
+    int iRet = 0;
+
+    InsertFirst ( &First , 70) ;
+    InsertFirst ( &First , 60) ;
+    InsertFirst ( &First , 50) ;
+    InsertFirst ( &First , 40) ;
+    InsertFirst ( &First , 30) ;
+    InsertFirst ( &First , 20) ;
+    InsertFirst ( &First , 10) ;
+    
+    iRet = First_Occur ( First , 30);
+    if ( iRet == 0)
+    {
+        printf("Not Found..\n");
+    }
+    else
+    {
+        printf("%d \n ", iRet);
+    }
 
     return 0;
 }
