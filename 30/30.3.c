@@ -176,21 +176,16 @@ void DeleteAtPos ( PPNODE Head , int iPos)
         }
 }
 
-int Last_Occur( PNODE Head , int No)
+int Addition( PNODE Head , int No)
 {
-
-    int iPos = 0;
-    int  iCnt = 0;
+    int iSum = 0;
     while ( Head != NULL)
     {   
-            iCnt ++;
-        if (  Head -> data == No)
-        {
-            iPos = iCnt;
-        }
+
+            iSum = Head -> data + iSum ;
             Head = Head -> next;
     }
-    return iPos;
+    return iSum;
 }
 
 int main()
@@ -199,9 +194,6 @@ int main()
 
     int iRet = 0;
 
-    InsertFirst ( &First , 70) ;
-    InsertFirst ( &First , 30) ;
-    InsertFirst ( &First , 50) ;
     InsertFirst ( &First , 40) ;
     InsertFirst ( &First , 30) ;
     InsertFirst ( &First , 20) ;
@@ -209,15 +201,9 @@ int main()
 
     Display ( First);
     
-    iRet = Last_Occur ( First , 30);
-    if ( iRet == 0)
-    {
-        printf("Not Found..\n");
-    }
-    else
-    {
+    iRet = Addition ( First , 30);
+
         printf("%d \n ", iRet);
-    }
 
     return 0;
 }
