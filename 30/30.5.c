@@ -176,12 +176,12 @@ void DeleteAtPos ( PPNODE Head , int iPos)
         }
 }
 
-int Large ( PNODE Head )
+int Small ( PNODE Head )
 {
     int Max = Head -> data;
     while ( Head != NULL)
     {
-        if ( Head -> data > Max)
+        if ( Head -> data < Max)
         {
             Max = Head -> data;
         }
@@ -198,12 +198,13 @@ int main()
 
     InsertFirst ( &First , 110) ;
     InsertFirst ( &First , 230) ;
+    InsertFirst ( &First , 20) ;
     InsertFirst ( &First , 240) ;
     InsertFirst ( &First , 320) ;
 
     Display ( First);
     
-    iRet = Large ( First );
+    iRet = Small ( First );
 
         printf("%d \n ", iRet);
 
