@@ -178,29 +178,27 @@ void DeleteAtPos ( PPNODE Head , int iPos)
 }
 
 
-void PalinDrome ( PNODE Head )
+void Product ( PNODE Head )
 {
-    int iDigit = 0;
     while ( Head != NULL)
     {
-    int iReverse = 0;  
-    int iTemp = Head -> data;
+    int iDigit = 0;
+    int iResult = 1;  
 
     while(Head -> data  != 0)
     {
         iDigit = (Head -> data) % 10;
-        iReverse = (iReverse * 10)+iDigit;
+        if ( iDigit == 0)
+        {
+            iDigit = 1;
+        }
+        iResult = iResult * iDigit;
         Head -> data = (Head -> data) / 10;
-    }
-    if ( iTemp == iReverse)
-    {
-        printf("%d : ",iTemp);
-    }
-            Head = Head -> next;
-    }
-
+    }   
+    Head = Head -> next;
+    printf("%d : ",iResult);
 }
-
+}
 int main()
 {
     PNODE First = NULL;
@@ -208,16 +206,13 @@ int main()
     int iRet = 0;
 
    InsertFirst ( &First , 11) ;
-    InsertFirst ( &First , 28) ;
-    InsertFirst ( &First , 17) ;
+    InsertFirst ( &First , 20) ;
+    InsertFirst ( &First , 32) ;
     InsertFirst ( &First , 41) ;
-    InsertFirst ( &First , 6) ;
-    InsertFirst ( &First , 89) ;
-    InsertFirst ( &First , 414) ;
 
     Display ( First);
     
-     PalinDrome ( First );
+     Product ( First );
 
     return 0;
 }
